@@ -1,9 +1,6 @@
-/*
- * Author : alfianLyn, agnesnola, ferrentino
- * About  : This project is about solving rullo games with DFS approach
- * Other  : -.
- */
-package cobarullo;
+package ta_sa_coba;
+
+import java.util.Random;
 
 class RulloBoard {
 
@@ -17,20 +14,55 @@ class RulloBoard {
     int[] vectorX = {9, 6, 11, 12, 8};
     int[] vectorY = {7, 10, 5, 10, 14};
 
+    boolean next;
+
+    RulloBoard() {
+
+    }
+
+    RulloBoard(int[][] board, int[] vectorX, int[] vectorY) {
+        this.board = board;
+        this.vectorX = vectorX;
+        this.vectorY = vectorY;
+        next = false;
+    }
     
+    public void hitung_baris(int a, int b, int c, int d, int e, int jumlah){
+        Random random=new Random();
+        int x[] = null; 
+        int count;
+        boolean y=false;
+        boolean[] z = null;
+        z[0]=random.nextBoolean();
+        z[1]=random.nextBoolean();
+        z[2]=random.nextBoolean();
+        z[3]=random.nextBoolean();
+        z[4]=random.nextBoolean();
+        x[0]=a;
+        x[1]=b;
+        x[2]=c;
+        x[3]=d;
+        x[4]=e;
+        
+        do{
+            for(count=0; count<5; count++){
+                if(z[count]==false){
+                    x[count]=0;
+                }
+            }
+            if(jumlah==x[0]+x[1]+x[2]+x[3]+x[4]){
+                y=true;
+            }
+        }while(y==true);
+        System.out.println(x[0]+","+x[1]+", "+x[2]+", "+x[3]+", "+x[4]);
+    }
 }
 
-/**
- *
- * @author Aiden
- */
-public class CobaRullo {
 
-    /**
-     * @param args the command line arguments
-     */
+public class TA_SA_Coba {
     public static void main(String[] args) {
         RulloBoard a = new RulloBoard();
+
         System.out.println();
         System.out.print("X/Y" + "\t");
         for (int i = 0; i < a.vectorX.length; i++) {
@@ -44,6 +76,7 @@ public class CobaRullo {
             }
             System.out.println();
         }
+        
+        a.hitung_baris(a.board[0][0], a.board[0][1], a.board[0][2], a.board[0][3], a.board[0][4], a.vectorY[0]);
     }
-
 }
