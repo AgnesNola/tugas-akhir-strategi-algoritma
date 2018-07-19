@@ -29,15 +29,10 @@ class RulloBoard {
     
     public void hitung_baris(int a, int b, int c, int d, int e, int jumlah){
         Random random=new Random();
-        int x[] = null; 
+        int[] x = null; 
         int count;
         boolean y=false;
-        boolean[] z = null;
-        z[0]=random.nextBoolean();
-        z[1]=random.nextBoolean();
-        z[2]=random.nextBoolean();
-        z[3]=random.nextBoolean();
-        z[4]=random.nextBoolean();
+        boolean z[] = null;
         x[0]=a;
         x[1]=b;
         x[2]=c;
@@ -46,6 +41,10 @@ class RulloBoard {
         
         do{
             for(count=0; count<5; count++){
+                int r=(Math.random()<0.5)?0:1;
+                if(r==0){
+                    z[count]=false;
+                }
                 if(z[count]==false){
                     x[count]=0;
                 }
